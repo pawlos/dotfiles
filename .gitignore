@@ -13,6 +13,9 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
+" Vim bundles (managed by Vundle)
+vim
+
 # sublime settings
 Package Control.last-run
 Package Control.ca-list
@@ -20,3 +23,12 @@ Package Control.ca-bundle
 Package Control.system-ca-bundle
 Package Control.cache/
 Package Control.ca-certs/
+sublime/User/GoSublime/osx-x64/log.txt
+
+# irssi
+.irssi/*.pem
+.irssi/config.autosave
+.irssi/config.bak
+.irssi/_windowlist
+.irssi/keepnick
+.irssi/away.log

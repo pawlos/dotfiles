@@ -19,9 +19,19 @@ alias j="jobs"
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gs='git status'
 alias gl='git log --oneline --decorate'
+alias gdf='git diff'
+alias gfd='git diff'
 alias pull='git pull'
-alias commit='git commit'
+alias commit='git commit -v'
 alias push='git push'
+alias ci='git commit -v'
+alias glb='git branches | grep -v remote'
+alias grlb='git branch | xargs git branch -d 2>/dev/null'
+alias gaa='git add -A'
+alias ga='git add -i -p'
+alias gco='git checkout'
+alias master='git checkout master'
+alias staging='git checkout staging'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -60,7 +70,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Enhanced WHOIS lookups
@@ -155,3 +165,30 @@ alias reload="exec $SHELL -l"
 
 # Faster npm for europeans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
+
+# grep without .git directory
+alias grep="grep --exclude-dir=\.git "
+
+# Redis
+alias redisstart='sudo launchctl start io.redis.redis-server'
+alias redisstop='sudo launchctl stop io.redis.redis-server'
+alias redis='/usr/local/bin/redis-cli'
+
+# Ruby
+#   Rails
+alias railson="rails server -p "
+#   Konacha
+alias konacha="bundle exec rake RAILS_ENV=test konacha:serve"
+
+# Count lines of code in current folder recursively
+alias loc="find ./ -not -type d | xargs wc -l | cut -c 1-8 | awk \'{total += (} END {print total}\')"
+
+# ccat
+# 'brew install ccat' required
+alias cat="ccat"
+
+# iA Writer
+alias ia="open $1 -a /Applications/iA\ Writer.app/Contents/MacOS/iA\ Writer"
+
+# IRC / irrsi
+alias irc="irssi"
